@@ -5,34 +5,37 @@
   <title>여기는 내 사이트다</title>
   <style>
     body {
-      background-color: #2c2c2c;
+      background-color: #1a1a1a; /* 배경을 조금 더 어둡게 해서 빛을 강조 */
       color: #e0e0e0;
       margin: 0;
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      font-family: 'Pretendard', sans-serif;
     }
 
     .top-banner {
-      background-color: #222222;
+      background-color: #111;
       padding: 60px 20px;
       text-align: center;
-      border-bottom: 1px solid #3d3d3d;
+      border-bottom: 2px solid #333;
     }
 
     .content {
       text-align: center;
-      line-height: 1.8; /* 간격을 살짝 좁혀서 흐름을 개선했습니다 */
+      line-height: 1.6; /* 간격을 확실히 좁혔습니다 */
       max-width: 650px;
       margin: 50px auto;
       padding: 0 25px;
     }
 
     .my-text {
-      font-size: 1.15em;
+      font-size: 1.2em;
       word-break: keep-all;
       white-space: pre-wrap;
-      font-weight: 300;
-      /* 글자 뒤 노란색 은은한 빛 연출 */
-      text-shadow: 0 0 15px rgba(255, 223, 105, 0.4), 0 0 5px rgba(255, 223, 105, 0.2);
+      font-weight: 400;
+      /* 빛의 강도를 훨씬 높였습니다 (여러 겹으로 겹침) */
+      text-shadow: 
+        0 0 10px rgba(255, 230, 100, 0.6), 
+        0 0 25px rgba(255, 200, 50, 0.4),
+        0 0 40px rgba(255, 150, 0, 0.2);
     }
 
     .footer-section {
@@ -40,32 +43,19 @@
       padding-bottom: 60px;
     }
 
-    hr {
-      border: 0;
-      border-top: 1px solid #3d3d3d;
-      margin: 40px auto;
-      width: 40px;
-    }
-
     button {
-      background-color: #3d3d3d;
-      color: #e0e0e0;
-      border: 1px solid #4d4d4d;
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #ffdf69; /* 버튼 테두리에도 노란 포인트를 주었습니다 */
       padding: 12px 28px;
-      font-size: 14px;
       cursor: pointer;
       border-radius: 6px;
-      transition: all 0.3s;
-    }
-
-    button:hover {
-      background-color: #4a4a4a;
-      box-shadow: 0 0 10px rgba(255, 223, 105, 0.3); /* 버튼에도 살짝 노란 빛 */
+      box-shadow: 0 0 15px rgba(255, 223, 105, 0.2);
     }
 
     .button-desc {
-      font-size: 0.85em;
-      color: #777;
+      font-size: 0.9em;
+      color: #666;
       margin-top: 15px;
     }
   </style>
@@ -78,7 +68,6 @@
   </div>
 
   <div class="content">
-    
     <div class="my-text">
       억울하게 초대된 자들.<br>
       이런게 인생이란걸 알았다면<br>
@@ -96,7 +85,6 @@
     </div>
 
     <div class="footer-section">
-      <hr>
       <button id="tobacco-btn">버튼</button>
       <p class="button-desc">담배값을 알려주는 버튼</p>
     </div>
@@ -105,11 +93,8 @@
   <script>
     const btn = document.getElementById('tobacco-btn');
     const audio = new Audio('담배값.m4a'); 
-
     btn.addEventListener('click', () => {
-      audio.play().catch(e => {
-        console.error("재생 에러:", e);
-      });
+      audio.play().catch(e => console.error("Error:", e));
     });
   </script>
 </body>
