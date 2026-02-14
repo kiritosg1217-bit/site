@@ -4,66 +4,64 @@
   <meta charset="utf-8">
   <title>여기는 내 사이트다</title>
   <style>
-    /* 전체 배경: 더 깊고 어두운 회색으로 변경 */
     body {
-      background-color: #161616;
+      background-color: #1a1a1a;
       color: #e8e8e8;
       margin: 0;
       font-family: 'Pretendard', sans-serif;
     }
 
     .top-banner {
-      background-color: #000000;
-      padding: 50px 20px;
+      background-color: #111;
+      padding: 60px 20px;
       text-align: center;
       border-bottom: 1px solid #333;
     }
 
     .content {
       text-align: center;
-      line-height: 1.8; /* 줄 간격 최적화 */
+      line-height: 1.8;
       max-width: 650px;
-      margin: 40px auto;
-      padding: 0 25px;
+      margin: 50px auto;
+      padding: 40px 30px; /* 안쪽 여백 추가 */
+      
+      /* [중요] 글자 뒤 배경을 은은하게 밝히는 효과 */
+      /* 중앙은 부드러운 노란빛이 감돌고 가장자리는 배경과 섞이게 설정 */
+      background: radial-gradient(
+        circle, 
+        rgba(255, 230, 100, 0.08) 0%, 
+        rgba(255, 230, 100, 0.03) 50%, 
+        transparent 100%
+      );
+      border-radius: 100px; /* 빛의 모양을 타원형으로 부드럽게 */
     }
 
-    /* [중요] 글자 뒤 노란 빛 연출 - 강도를 대폭 높였습니다 */
     .my-text {
       font-size: 1.25em;
       word-break: keep-all;
       white-space: pre-wrap;
       font-weight: 400;
-      color: #ffffff;
-      /* 여러 겹의 그림자로 네온처럼 빛나게 함 */
-      text-shadow: 
-        0 0 10px rgba(255, 223, 105, 0.8), 
-        0 0 20px rgba(255, 223, 105, 0.5),
-        0 0 40px rgba(255, 150, 0, 0.3);
+      /* 글자 자체의 빛은 살짝 줄여서 가독성을 높였습니다 */
+      text-shadow: 0 0 5px rgba(255, 223, 105, 0.3);
     }
 
     .footer-section {
-      margin-top: 60px;
+      margin-top: 40px;
       padding-bottom: 60px;
     }
 
     button {
       background-color: #333;
       color: #fff;
-      border: 1px solid #555;
+      border: 1px solid #444;
       padding: 12px 28px;
       cursor: pointer;
       border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #444;
-      border-color: #ffdf69; /* 호버 시 버튼 테두리만 살짝 노랗게 */
     }
 
     .button-desc {
       font-size: 0.9em;
-      color: #777;
+      color: #666;
       margin-top: 15px;
     }
   </style>
@@ -93,7 +91,6 @@
     </div>
 
     <div class="footer-section">
-      <hr style="border: 0; border-top: 1px solid #333; margin-bottom: 30px;">
       <button id="tobacco-btn">버튼</button>
       <p class="button-desc">담배값을 알려주는 버튼</p>
     </div>
