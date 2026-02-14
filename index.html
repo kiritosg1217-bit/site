@@ -25,3 +25,14 @@ force update index.html
     audio.play();
   });
 </script>
+<script>
+  const btn = document.getElementById('tobacco-btn');
+  const audio = new Audio('담배값.mp3'); 
+
+  btn.addEventListener('click', () => {
+    console.log("버튼이 클릭되었습니다.");
+    audio.play().catch(e => {
+      alert("에러 발생: " + e.message + "\n파일이 서버에 있는지 확인해주세요.");
+    });
+  });
+</script>
