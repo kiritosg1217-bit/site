@@ -4,40 +4,41 @@
   <meta charset="utf-8">
   <title>여기는 내 사이트다</title>
   <style>
+    /* 전체 배경: 더 깊고 어두운 회색으로 변경 */
     body {
-      background-color: #1a1a1a;
-      color: #e0e0e0;
+      background-color: #161616;
+      color: #e8e8e8;
       margin: 0;
       font-family: 'Pretendard', sans-serif;
     }
 
     .top-banner {
-      background-color: #111;
-      padding: 60px 20px;
+      background-color: #000000;
+      padding: 50px 20px;
       text-align: center;
-      border-bottom: 2px solid #333;
+      border-bottom: 1px solid #333;
     }
 
     .content {
       text-align: center;
-      line-height: 1.7; /* 위아래 간격을 적당히 줄였습니다 */
+      line-height: 1.8; /* 줄 간격 최적화 */
       max-width: 650px;
-      margin: 50px auto;
+      margin: 40px auto;
       padding: 0 25px;
     }
 
+    /* [중요] 글자 뒤 노란 빛 연출 - 강도를 대폭 높였습니다 */
     .my-text {
-      font-size: 1.2em;
+      font-size: 1.25em;
       word-break: keep-all;
       white-space: pre-wrap;
       font-weight: 400;
-      
-      /* [중요] 글자 뒤 노란 빛 (버튼이 아니라 글자에 적용) */
-      /* 여러 겹으로 쌓아서 안개처럼 은은하게 퍼지게 만들었습니다 */
+      color: #ffffff;
+      /* 여러 겹의 그림자로 네온처럼 빛나게 함 */
       text-shadow: 
-        0 0 8px rgba(255, 223, 105, 0.7), 
-        0 0 20px rgba(255, 223, 105, 0.4),
-        0 0 35px rgba(255, 180, 0, 0.2);
+        0 0 10px rgba(255, 223, 105, 0.8), 
+        0 0 20px rgba(255, 223, 105, 0.5),
+        0 0 40px rgba(255, 150, 0, 0.3);
     }
 
     .footer-section {
@@ -45,24 +46,24 @@
       padding-bottom: 60px;
     }
 
-    /* 버튼 스타일 (노란 테두리 제거하고 깔끔하게 수정) */
     button {
       background-color: #333;
-      color: #e0e0e0;
-      border: 1px solid #444; 
+      color: #fff;
+      border: 1px solid #555;
       padding: 12px 28px;
       cursor: pointer;
-      border-radius: 6px;
-      transition: all 0.3s;
+      border-radius: 8px;
+      transition: 0.3s;
     }
 
     button:hover {
       background-color: #444;
+      border-color: #ffdf69; /* 호버 시 버튼 테두리만 살짝 노랗게 */
     }
 
     .button-desc {
       font-size: 0.9em;
-      color: #666;
+      color: #777;
       margin-top: 15px;
     }
   </style>
@@ -92,6 +93,7 @@
     </div>
 
     <div class="footer-section">
+      <hr style="border: 0; border-top: 1px solid #333; margin-bottom: 30px;">
       <button id="tobacco-btn">버튼</button>
       <p class="button-desc">담배값을 알려주는 버튼</p>
     </div>
