@@ -5,7 +5,7 @@
   <title>여기는 내 사이트다</title>
   <style>
     body {
-      background-color: #1a1a1a; /* 배경을 조금 더 어둡게 해서 빛을 강조 */
+      background-color: #1a1a1a;
       color: #e0e0e0;
       margin: 0;
       font-family: 'Pretendard', sans-serif;
@@ -20,7 +20,7 @@
 
     .content {
       text-align: center;
-      line-height: 1.6; /* 간격을 확실히 좁혔습니다 */
+      line-height: 1.7; /* 위아래 간격을 적당히 줄였습니다 */
       max-width: 650px;
       margin: 50px auto;
       padding: 0 25px;
@@ -31,11 +31,13 @@
       word-break: keep-all;
       white-space: pre-wrap;
       font-weight: 400;
-      /* 빛의 강도를 훨씬 높였습니다 (여러 겹으로 겹침) */
+      
+      /* [중요] 글자 뒤 노란 빛 (버튼이 아니라 글자에 적용) */
+      /* 여러 겹으로 쌓아서 안개처럼 은은하게 퍼지게 만들었습니다 */
       text-shadow: 
-        0 0 10px rgba(255, 230, 100, 0.6), 
-        0 0 25px rgba(255, 200, 50, 0.4),
-        0 0 40px rgba(255, 150, 0, 0.2);
+        0 0 8px rgba(255, 223, 105, 0.7), 
+        0 0 20px rgba(255, 223, 105, 0.4),
+        0 0 35px rgba(255, 180, 0, 0.2);
     }
 
     .footer-section {
@@ -43,14 +45,19 @@
       padding-bottom: 60px;
     }
 
+    /* 버튼 스타일 (노란 테두리 제거하고 깔끔하게 수정) */
     button {
       background-color: #333;
-      color: #fff;
-      border: 1px solid #ffdf69; /* 버튼 테두리에도 노란 포인트를 주었습니다 */
+      color: #e0e0e0;
+      border: 1px solid #444; 
       padding: 12px 28px;
       cursor: pointer;
       border-radius: 6px;
-      box-shadow: 0 0 15px rgba(255, 223, 105, 0.2);
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background-color: #444;
     }
 
     .button-desc {
