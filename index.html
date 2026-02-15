@@ -12,64 +12,47 @@
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* 1. 배너 설정: 길이는 늘리고, 하단 글자는 잘라냄 */
         .banner-clip {
-            width: 100%; 
-            height: 380px; /* 배너를 아래로 더 길게 노출 */
-            overflow: hidden; 
-            display: flex; 
-            justify-content: center;
+            width: 100%; height: 380px; overflow: hidden; 
+            display: flex; justify-content: center;
             border-bottom: 2px solid #222;
         }
 
         .banner-clip img {
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; /* 영역에 맞게 채우되 비율 유지 */
-            object-position: top; /* 윗부분(등불) 고정, 아래 글자 영역은 자동 절단 */
+            width: 100%; height: 100%; object-fit: cover; object-position: top;
         }
 
         .container {
-            max-width: 800px; width: 100%;
-            padding: 40px 20px;
-            text-align: center;
+            max-width: 800px; width: 100%; padding: 40px 20px; 
+            /* 자식 요소들을 가운데로 모으는 핵심 설정 */
+            text-align: center; 
         }
 
-        /* 2. 상태창 및 담배 버튼 */
-        .status-box {
-            margin-bottom: 50px;
-            padding: 20px;
-        }
+        .status-box { margin-bottom: 50px; padding: 20px; }
 
         .status-text {
-            color: #666; font-size: 0.9rem; margin-bottom: 20px;
-            letter-spacing: 1px;
+            color: #666; font-size: 0.9rem; margin-bottom: 20px; letter-spacing: 1px;
         }
 
         .smoke-btn {
-            background-color: transparent;
-            color: #ff4444;
-            border: 1px solid #444;
-            padding: 10px 30px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
+            background-color: transparent; color: #ff4444;
+            border: 1px solid #444; padding: 10px 30px;
+            border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s;
         }
         .smoke-btn:hover {
-            background-color: #1a1a1a;
-            border-color: #ff4444;
+            background-color: #1a1a1a; border-color: #ff4444;
         }
 
-        /* 3. 메모: 가운데 정렬 및 가독성 확보 */
         .memo-content {
-            margin-top: 40px;
-            white-space: pre-wrap;
+            margin-top: 40px; 
+            white-space: pre-wrap; 
             font-size: 1.25rem;
-            line-height: 2.8;
-            color: #d1d1d1;
+            line-height: 2.8; 
+            color: #d1d1d1; 
             word-break: keep-all;
-            display: inline-block;
+            /* 정중앙 배치를 완성하는 설정 */
+            display: inline-block; 
+            text-align: center; /* 박스 내부의 글자들도 가운데 정렬 */
         }
     </style>
 </head>
@@ -82,7 +65,7 @@
     <div class="container">
         <div class="status-box">
             <div class="status-text">ENERGY: 75% | DEPRESSION: 40%</div>
-            <button class="smoke-btn" onclick="alert('기록을 남깁니다.')">SMOKE</button>
+            <button class="smoke-btn" id="smokeBtn">담배값</button>
         </div>
 
         <div class="memo-content">억울하게 초대된 자들.
@@ -99,6 +82,18 @@
 그리고 이 마음을 간직하며 실천하고 싶기에
 여기에 나만의 공간에 적는다.</div>
     </div>
+
+    <audio id="smokeSound" src="담배값.m4a"></audio>
+
+    <script>
+        const btn = document.getElementById('smokeBtn');
+        const sound = document.getElementById('smokeSound');
+
+        btn.onclick = function() {
+            sound.play();
+            console.log("기록을 남기며 소리를 재생합니다.");
+        };
+    </script>
 
 </body>
 </html>
