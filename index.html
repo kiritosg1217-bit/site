@@ -1,107 +1,130 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <title>여기는 내 사이트다</title>
-  <style>
-    body {
-      background-color: #1a1a1a;
-      color: #e8e8e8;
-      margin: 0;
-      font-family: 'Pretendard', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Challenge & Data</title>
+    <style>
+        /* 1. 전체 배경 설정 (눈이 편안하도록 아주 짙은 회색) */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* 완전 검정보다 약간 밝은 톤 */
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    .top-banner {
-      background-color: #111;
-      padding: 60px 20px;
-      text-align: center;
-      border-bottom: 1px solid #333;
-    }
+        /* 2. 상단 게임 세이프 하우스 배너 */
+        .top-banner {
+            width: 100%;
+            height: 280px; /* 사용자님이 원하는 높이로 조절 가능 */
+            background-image: url('banner.png'); /* 아까 저장한 등불 책장 이미지 */
+            background-size: cover;
+            background-position: top; /* 이미지 윗부분(등불 쪽) 고정 */
+            background-repeat: no-repeat;
+            border-bottom: 2px solid #2a2a2a;
+            box-shadow: inset 0 -50px 50px rgba(0,0,0,0.5); /* 이미지 아래쪽 자연스러운 그림자 */
+        }
 
-    .content {
-      text-align: center;
-      line-height: 1.8;
-      max-width: 650px;
-      margin: 50px auto;
-      padding: 40px 30px; /* 안쪽 여백 추가 */
-      
-      /* [중요] 글자 뒤 배경을 은은하게 밝히는 효과 */
-      /* 중앙은 부드러운 노란빛이 감돌고 가장자리는 배경과 섞이게 설정 */
-      background: radial-gradient(
-        circle, 
-        rgba(255, 230, 100, 0.08) 0%, 
-        rgba(255, 230, 100, 0.03) 50%, 
-        transparent 100%
-      );
-      border-radius: 100px; /* 빛의 모양을 타원형으로 부드럽게 */
-    }
+        /* 3. 메인 컨텐츠 영역 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
 
-    .my-text {
-      font-size: 1.25em;
-      word-break: keep-all;
-      white-space: pre-wrap;
-      font-weight: 400;
-      /* 글자 자체의 빛은 살짝 줄여서 가독성을 높였습니다 */
-      text-shadow: 0 0 5px rgba(255, 223, 105, 0.3);
-    }
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
 
-    .footer-section {
-      margin-top: 40px;
-      padding-bottom: 60px;
-    }
+        /* 4. 데이터 대시보드 카드 (살짝 밝기를 올린 영역) */
+        .dashboard-card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-    button {
-      background-color: #333;
-      color: #fff;
-      border: 1px solid #444;
-      padding: 12px 28px;
-      cursor: pointer;
-      border-radius: 8px;
-    }
+        .status-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
 
-    .button-desc {
-      font-size: 0.9em;
-      color: #666;
-      margin-top: 15px;
-    }
-  </style>
+        .status-item {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .status-value {
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .quest-box {
+            background-color: #252525;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .quest-title {
+            color: #ffcc00;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* 5. 버튼 스타일 */
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #0078d4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #005a9e;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="top-banner">
-    <h1>내 목소리가 들리는 공간</h1>
-    <p>나의 마음과 다짐을 기록하는 곳</p>
-  </div>
+    <div class="top-banner"></div>
 
-  <div class="content">
-    <div class="my-text">
-      억울하게 초대된 자들.<br>
-      이런게 인생이란걸 알았다면<br>
-      태어나는 것을 선택하지 않았을 자들.<br><br>
-      나는 적어도 <br>
-      그들이 "인생"이라는 것을 <br>
-      사는 이들에게<br>
-      죽는 것보다 고통스러운 삶을<br>
-      살아가는 것이 마음이 쓰인다.<br><br>
-      나또한 인간이기에<br>
-      내가 정말 힘들었을 때 들었던<br>
-      이 생각을 왠지 잊고 싶지 않다.<br><br>
-      그리고 이 마음을 간직하며 실천하고 싶기에<br>
-      여기에 나만의 공간에 적는다.
+    <div class="container">
+        <h1>Mechanical Challenge & Data</h1>
+
+        <div class="dashboard-card">
+            <div class="status-grid">
+                <div class="status-item">ENERGY: <span class="status-value">75%</span></div>
+                <div class="status-item">DEPRESSION: <span class="status-value">40%</span></div>
+                <div class="status-item">OBJECTIVE: <span class="status-value">GO TO EMPLOYMENT CENTER</span></div>
+                <div class="status-item">DUE: <span class="status-value">TOMORROW</span></div>
+            </div>
+
+            <div class="quest-box">
+                <span class="quest-title">CHAPTER 1: START-UP</span>
+                <p>DAILY QUEST: 200 CALORIES DEFICIT (현재 산책 준비 중...)</p>
+            </div>
+
+            <a href="https://www.work24.go.kr" class="btn">국민취업지원제도 바로가기</a>
+        </div>
     </div>
 
-    <div class="footer-section">
-      <button id="tobacco-btn">버튼</button>
-      <p class="button-desc">담배값을 알려주는 버튼</p>
-    </div>
-  </div>
-
-  <script>
-    const btn = document.getElementById('tobacco-btn');
-    const audio = new Audio('담배값.m4a'); 
-    btn.addEventListener('click', () => {
-      audio.play().catch(e => console.error("Error:", e));
-    });
-  </script>
 </body>
 </html>
