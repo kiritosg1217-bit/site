@@ -39,17 +39,24 @@
         .status-box { margin-bottom: 50px; padding: 20px; }
         .status-text { color: #666; font-size: 0.9rem; margin-bottom: 20px; letter-spacing: 1px; }
 
-        .smoke-btn {
-            background-color: transparent; color: #ff4444;
-            border: 1px solid #444; padding: 10px 30px;
-            border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s;
-        }
-        .smoke-btn:hover { background-color: #1a1a1a; border-color: #ff4444; }
+        .btn-group { display: flex; gap: 10px; justify-content: center; }
 
-        /* 일기 작성란 스타일 */
+        .smoke-btn, .toggle-diary-btn {
+            background-color: transparent; border: 1px solid #444; 
+            padding: 10px 30px; border-radius: 4px; cursor: pointer; 
+            font-weight: bold; transition: 0.3s;
+        }
+        .smoke-btn { color: #ff4444; }
+        .smoke-btn:hover { background-color: #1a1a1a; border-color: #ff4444; }
+        
+        .toggle-diary-btn { color: #aaa; }
+        .toggle-diary-btn:hover { background-color: #1a1a1a; color: #fff; border-color: #888; }
+
+        /* 일기 작성란 스타일 (기본적으로 숨김 처리) */
         .diary-write-card {
+            display: none; /* 처음에 보이지 않게 함 */
             background: #151515; border: 1px solid #222;
-            padding: 25px; border-radius: 8px; margin-bottom: 50px;
+            padding: 25px; border-radius: 8px; margin: 30px 0;
             text-align: left;
         }
         #diaryTitle, #diaryContent {
@@ -101,10 +108,13 @@
         <div class="container">
             <div class="status-box">
                 <div class="status-text">ENERGY: 75% | DEPRESSION: 40%</div>
-                <button class="smoke-btn" id="담배값">담배값</button>
+                <div class="btn-group">
+                    <button class="smoke-btn" id="담배값">담배값</button>
+                    <button class="toggle-diary-btn" onclick="toggleDiary()">일기 쓰기</button>
+                </div>
             </div>
 
-            <div class="diary-write-card">
+            <div class="diary-write-card" id="diaryCard">
                 <input type="text" id="diaryTitle" placeholder="제목을 입력하세요">
                 <textarea id="diaryContent" placeholder="기록하고 싶은 마음을 적으세요..."></textarea>
                 <button class="save-btn" onclick="saveDiary()">마음 저장</button>
@@ -142,7 +152,17 @@
             sound.play();
         };
 
-        // [기능 2] 일기 저장 및 불러오기
+        // [기능 2] 일기 작성란 열기/닫기
+        function toggleDiary() {
+            const card = document.getElementById('diaryCard');
+            if (card.style.display === "none" || card.style.display === "") {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        }
+
+        // [기능 3] 일기 저장 및 불러오기
         const diaryListUl = document.getElementById('diaryList');
 
         window.onload = function() {
@@ -170,6 +190,7 @@
             title.value = '';
             content.value = '';
             displayDiaries();
+            toggleDiary(); // 저장 후 다시 숨기기
         }
 
         function displayDiaries() {
