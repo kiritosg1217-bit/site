@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -65,7 +65,7 @@
     <div class="container">
         <div class="status-box">
             <div class="status-text">ENERGY: 75% | DEPRESSION: 40%</div>
-            <button class="smoke-btn" id="smokeBtn">담배값</button>
+            <button class="smoke-btn" id="담배값">담배값</button>
         </div>
 
         <div class="memo-content">억울하게 초대된 자들.
@@ -86,10 +86,13 @@
     <audio id="smokeSound" src="담배값.m4a"></audio>
 
     <script>
+        // HTML에서 설정한 id="담배값"을 정확히 가져옵니다.
         const btn = document.getElementById('담배값');
-        const sound = document.getElementById('담배값.m4a');
+        // 오디오 태그의 id="smokeSound"를 가져옵니다.
+        const sound = document.getElementById('smokeSound');
 
         btn.onclick = function() {
+            sound.currentTime = 0; // 재생 위치 초기화
             sound.play();
             console.log("기록을 남기며 소리를 재생합니다.");
         };
