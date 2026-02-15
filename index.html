@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기록</title>
+    <title>Mechanical Challenge & Data</title>
     <style>
         body {
             margin: 0; padding: 0;
@@ -12,16 +12,21 @@
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* 1. 이미지 하단 절단 (등불만 보이게) */
+        /* 1. 배너 설정: 길이는 늘리고, 하단 글자는 잘라냄 */
         .banner-clip {
-            width: 100%; height: 260px;
-            overflow: hidden;
-            display: flex; justify-content: center;
-            border-bottom: 1px solid #222;
+            width: 100%; 
+            height: 380px; /* 배너를 아래로 더 길게 노출 */
+            overflow: hidden; 
+            display: flex; 
+            justify-content: center;
+            border-bottom: 2px solid #222;
         }
+
         .banner-clip img {
-            width: 100%; max-width: 1200px;
-            object-fit: cover; object-position: top;
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* 영역에 맞게 채우되 비율 유지 */
+            object-position: top; /* 윗부분(등불) 고정, 아래 글자 영역은 자동 절단 */
         }
 
         .container {
@@ -56,11 +61,11 @@
             border-color: #ff4444;
         }
 
-        /* 3. 사용자님의 메모 (가가운데 정렬) */
+        /* 3. 메모: 가운데 정렬 및 가독성 확보 */
         .memo-content {
             margin-top: 40px;
             white-space: pre-wrap;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             line-height: 2.8;
             color: #d1d1d1;
             word-break: keep-all;
@@ -77,7 +82,7 @@
     <div class="container">
         <div class="status-box">
             <div class="status-text">ENERGY: 75% | DEPRESSION: 40%</div>
-            <button class="smoke-btn">SMOKE</button>
+            <button class="smoke-btn" onclick="alert('기록을 남깁니다.')">SMOKE</button>
         </div>
 
         <div class="memo-content">억울하게 초대된 자들.
