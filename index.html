@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,15 @@
             margin: 0; padding: 0;
             background-color: #0d0d0d; color: #ffffff;
             font-family: 'Malgun Gothic', sans-serif;
+            display: flex; /* 사이드바 배치를 위해 flex로 변경 */
+            min-height: 100vh;
+        }
+
+        /* 메인 콘텐츠 영역 */
+        .main-wrapper {
+            flex: 1;
             display: flex; flex-direction: column; align-items: center;
+            padding-right: 300px; /* 사이드바 공간 확보 */
         }
 
         .banner-clip {
@@ -24,7 +32,6 @@
 
         .container {
             max-width: 800px; width: 100%; padding: 40px 20px; 
-            /* 자식 요소들을 가운데로 모으는 핵심 설정 */
             text-align: center; 
         }
 
@@ -43,60 +50,16 @@
             background-color: #1a1a1a; border-color: #ff4444;
         }
 
-        .memo-content {
-            margin-top: 40px; 
-            white-space: pre-wrap; 
-            font-size: 1.25rem;
-            line-height: 2.8; 
-            color: #d1d1d1; 
-            word-break: keep-all;
-            /* 정중앙 배치를 완성하는 설정 */
-            display: inline-block; 
-            text-align: center; /* 박스 내부의 글자들도 가운데 정렬 */
+        /* 일기 작성 영역 스타일 */
+        .diary-section {
+            margin: 30px 0; width: 100%; background: #151515;
+            padding: 25px; border-radius: 8px; border: 1px solid #222;
+            box-sizing: border-box;
         }
-    </style>
-</head>
-<body>
-
-    <div class="banner-clip">
-        <img src="banner.png" alt="banner">
-    </div>
-    
-    <div class="container">
-        <div class="status-box">
-            <div class="status-text">ENERGY: 75% | DEPRESSION: 40%</div>
-            <button class="smoke-btn" id="담배값">담배값</button>
-        </div>
-
-        <div class="memo-content">억울하게 초대된 자들.
-이런게 인생이란걸 알았다면
-태어나는 것을 선택하지 않았을 자들.
-나는 적어도 
-그들이 "인생"이라는 것을 
-사는 이들에게
-죽는 것보다 고통스러운 삶을
-살아가는 것이 마음이 쓰인다.
-나또한 인간이기에
-내가 정말 힘들었을 때 들었던
-이 생각을 왠지 잊고 싶지 않다.
-그리고 이 마음을 간직하며 실천하고 싶기에
-여기에 나만의 공간에 적는다.</div>
-    </div>
-
-    <audio id="smokeSound" src="담배값.m4a"></audio>
-
-    <script>
-        // HTML에서 설정한 id="담배값"을 정확히 가져옵니다.
-        const btn = document.getElementById('담배값');
-        // 오디오 태그의 id="smokeSound"를 가져옵니다.
-        const sound = document.getElementById('smokeSound');
-
-        btn.onclick = function() {
-            sound.currentTime = 0; // 재생 위치 초기화
-            sound.play();
-            console.log("기록을 남기며 소리를 재생합니다.");
-        };
-    </script>
-
-</body>
-</html>
+        #diaryTitle {
+            width: 100%; background: #0d0d0d; border: 1px solid #333;
+            color: white; padding: 12px; margin-bottom: 10px; box-sizing: border-box;
+        }
+        #diaryContent {
+            width: 100%; height: 150px; background: #0d0d0d; border: 1px solid #333;
+            color: white; padding: 12px; resize: none; margin
